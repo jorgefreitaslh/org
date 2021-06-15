@@ -1,0 +1,360 @@
+@font-face {
+    font-family: Filson;
+    src: url('./assets/fonts/FilsonLight.ttf');
+}
+
+@font-face {
+    font-family: FilsonBold;
+    src: url('./assets/fonts/FilsonStrong.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ecf0f1;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-profile {
+    width: 80vw !important;
+    height: 4vw;
+    background-color: #ecf0f1;
+    border: 0.1vw solid #35363a;
+    color: #000;
+    font-size: 1.1vw;
+    padding-left: 2vw;
+}
+
+.select-perfil:hover {
+    cursor: pointer
+}
+
+.select-perfil {
+    width: 41.3vw !important;
+    height: 2.8vw;
+    background-color: #ecf0f1;
+    border: 0.1vw solid #ccc;
+    color: #000;
+    font-size: 1.1vw;
+    padding-left: 2vw;
+    margin-top: 1vw;
+}
+
+.select-business {
+    width: 55vw !important;
+    height: 4vw;
+    background-color: #ecf0f1;
+    border: 0.1vw solid #777;
+    color: #000;
+    font-size: 1.1vw;
+    padding-left: 2vw;
+}
+
+.ReactModal__Overlay {
+    background-color: transparent !important;
+}
+
+.ReactModal__Overlay--after-open {
+    background-color: transparent !important;
+}
+
+::-webkit-inner-spin-button {
+    display: none;
+    position: absolute;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: #ccc;
+    height: 1vw;
+    padding: 0.2vw;
+    padding-inline-start: 0.35vw !important;
+}
+
+::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+::-webkit-datetime-edit {
+    font-size: 1vw;
+    padding: 0 !important;
+}
+
+.lgVRgR {
+    padding-bottom: 0 !important;
+}
+
+.rbc-toolbar {
+    font-size: 1.3vw;
+    font-family: FilsonBold;
+}
+
+.rbc-toolbar button {
+    font-size: 1.1vw;
+    font-family: Filson;
+    font-weight: 900;
+    color: #35363a;
+    border: 0.1vw solid #ccc;
+    border-radius: 0;
+    padding: 0.7vw 1.3vw;
+}
+
+.rbc-header {
+    font-size: 1.2vw;
+    font-family: FilsonBold;
+    padding: 0.5vw 0;
+    border-bottom: 0.1vw solid #DDD;
+}
+
+.rbc-time-view {
+    border: 0.1vw solid #DDD;
+}
+
+.rbc-time-content {
+    border-top: 0.2vw solid #DDD;
+}
+
+.rbc-time-header-content {
+    border-left: 0.1vw solid #DDD;
+}
+
+.rbc-time-content>*+*>* {
+    border-left: 0.1vw solid #DDD;
+}
+
+.rbc-timeslot-group {
+    border-bottom: 0.1vw solid #DDD;
+}
+
+.rbc-header+.rbc-header {
+    border-left: 0.1vw solid #DDD;
+}
+
+.rbc-day-bg+.rbc-day-bg {
+    border-left: 0.1vw solid #DDD;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody>tr>td+td {
+    border-left: 0.1vw solid #DDD;
+}
+
+.rbc-agenda-view table.rbc-agenda-table thead>tr>th {
+    border-bottom: 0 !important;
+}
+
+.rbc-day-slot .rbc-time-slot {
+    border-top: 0.1vw solid #f7f7f7;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody>tr+tr {
+    border-top: 0.1vw solid #DDD;
+}
+
+.rbc-agenda-view table.rbc-agenda-table {
+    border: 0.1vw solid #DDD;
+}
+
+.rbc-current-time-indicator {
+    background-color: #439bd7;
+}
+
+.rbc-date-cell {
+    font-size: 1.3vw;
+    font-family: Filson;
+}
+
+.rbc-event,
+.rbc-day-slot .rbc-background-event {
+    font-size: 0.7vw;
+    font-family: Filson;
+    font-weight: 900;
+}
+
+.rbc-agenda-date-cell {
+    font-size: 1.1vw;
+    font-family: Filson;
+    font-weight: 900;
+}
+
+.rbc-agenda-time-cell {
+    font-size: 1.1vw;
+    font-family: Filson;
+    font-weight: 900;
+}
+
+.rbc-agenda-event-cell {
+    font-size: 1.1vw;
+    font-family: Filson;
+    font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rbc-show-more {
+    font-size: 1vw;
+    font-family: Filson;
+    font-weight: 900;
+    color: #439bd7;
+    text-decoration: none !important;
+}
+
+.rbc-label {
+    font-size: 1vw;
+    font-family: Filson;
+    font-weight: 900;
+    padding: 0;
+}
+
+.rbc-time-view .rbc-row {
+    min-height: 2vw !important;
+}
+
+.rbc-time-view .rbc-time-gutter {
+    width: 7vw;
+}
+
+.rbc-event {
+    width: 100% !important;
+}
+
+.rbc-time-gutter,
+.rbc-time-column {
+    width: 8.7vw !important;
+}
+
+.rbc-label,
+.rbc-time-header-gutter {
+    width: 8.7vw !important;
+    min-width: 8.7vw !important;
+    max-width: 8.7vw !important;
+}
+
+.rbc-day-slot {
+    width: 95% !important;
+}
+
+.rbc-event-label {
+    display: none;
+}
+
+.rbc-row-segment {
+    width: 8vw !important;
+}
+
+.rbc-event,
+.rbc-selected {
+    height: 2vw;
+    min-height: 2vw !important;
+    max-height: 2vw !important;
+}
+
+.rbc-event-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 0.1vw;
+    top: 1vw;
+}
+
+.rbc-time-header.rbc-overflowing {
+    width: 69.6vw;
+    border: 0;
+}
+
+.rbc-event,
+.rbc-day-slot .rbc-background-event {
+    border-radius: 0.5vw;
+}
+
+.rbc-timeslot-group {
+    height: 10vw !important;
+    min-height: 10vw !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody>tr>td {
+    width: 23vw !important;
+    min-width: 22.5vw !important;
+    min-width: 22.5vw !important;
+    border: 0;
+    padding: 0 !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table thead>tr>th {
+    padding: 0 !important;
+    width: 22.5vw !important;
+    min-width: 22.5vw !important;
+    min-width: 22.5vw !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table .rbc-agenda-time-cell {
+    padding: 0 !important;
+}
+
+.rbc-today {
+    background-color: #A1D1F3;
+}
+
+.rbc-date-cell.rbc-now {
+    color: #FFF;
+}
+
+.rbc-off-range-bg {
+    background-color: #ebebeb;
+}
+
+.rbc-off-range {
+    color: #ccc;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+    background-color: #ccc;
+}
+
+.carousel-next:before {
+    background-image: url(./assets/img//seta.svg) !important;
+}
+
+.carousel-next,
+.carousel-prev {
+    width: 5vw !important;
+}
+
+.carousel-next:hover,
+.carousel-prev:hover {
+    opacity: 0.5 !important;
+}
+
+.carousel-track {
+    height: 3.5vw !important;
+}
+
+.carousel-prev:before {
+    background-image: url(./assets/img//seta.svg) !important;
+    transform: rotate(180deg);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.slick-next {
+    right: 3vw !important;
+}
+
+.slick-prev {
+    left: 3vw !important;
+}

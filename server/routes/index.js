@@ -1,0 +1,30 @@
+const { Router } = require('express');
+const controllers = require('../controllers');
+const router = Router();
+router.get('/', (req, res) => res.send('This is root!'));
+router.post('/learners', controllers.createLearner);
+router.get('/learners', controllers.getAllLearners);
+router.put('/learners/:email', controllers.updateLearner);
+router.get('/learners/:email', controllers.getLearner);
+router.delete('/learners/:email', controllers.deleteLearner);
+router.post('/volunteers', controllers.createVolunteer);
+router.put('/volunteers/:email', controllers.updateVolunteer);
+router.get('/volunteers', controllers.getAllVolunteers);
+router.get('/volunteers/:email', controllers.getVolunteer);
+router.delete('/volunteers/:email', controllers.deleteVolunteer);
+router.post('/requests', controllers.createRequests);
+router.get('/requests', controllers.getAllRequests);
+router.get('/requests/:id', controllers.getRequest);
+router.delete('/requests/:id', controllers.deleteRequest);
+router.post('/upcoming', controllers.createUpcoming);
+router.get('/upcoming', controllers.getAllUpcomings);
+router.get('/upcoming/:id', controllers.getUpcoming);
+router.delete('/upcoming/:id', controllers.deleteUpcoming);
+router.post('/completed', controllers.createCompleted);
+router.get('/completed', controllers.getAllCompleteds);
+router.get('/completed/:id', controllers.getCompleted);
+router.put('/completed/:id', controllers.updateCompleted);
+router.delete('/completed/:id', controllers.deleteCompleted);
+router.post('/send', controllers.SendEmail);
+
+module.exports = router

@@ -1,0 +1,31 @@
+{
+  "name": "org",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/server.js",
+    "client": "node start-client.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.0.2",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "nodemailer": "^6.6.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.2",
+    "pg-native": "^3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-modal": "^3.13.1",
+    "react-router-dom": "^5.2.0",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^2.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}
