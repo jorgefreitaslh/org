@@ -152,6 +152,7 @@ function BusinessSignup() {
 
     const [on, setOn] = useState(false);
     const [off, setOff] = useState(true);
+    const [sign, setSign] = useState(false);
     const [newArray, setArray] = useState([]);
 
     const ValidateEmail = () => {
@@ -439,6 +440,7 @@ function BusinessSignup() {
             setTitle('Details')
             setLoaddetails(true)
             setLoader('Sign up')
+            setSign(true)
         }
     }
 
@@ -1041,7 +1043,15 @@ function BusinessSignup() {
                         </Question>
                     </AvailabilityCenter>
                     <BottomButtons>
-                        <ShowMore back={true}>
+                        <ShowMore 
+                            back={true}
+                            onClick={() =>{
+                                setMentors(true)
+                                setAvailability(false)
+                                setLoadavailability(false)
+                                setLoaddetails(false)
+                                window.scrollTo({ top: 0, behavior: 'smooth' })
+                        }}>
                             Back:Mentors
                         </ShowMore>
                         <Next
@@ -1064,13 +1074,18 @@ function BusinessSignup() {
                             left={true}
                             onClick={() => {
                                 if (login === false) {
-                                    setShow(true)
+                                    if(sign === true){
+                                        setAvailability(false)
+                                        setDetails(true)
+                                        setLoaddetails(true)
+                                    }else {
+                                        setShow(true)
+                                    }
                                 } else {
                                     setdisplayConfirm(true)
                                     setAvailability(false)
                                     setLoaddetails(true)
                                     setLoadconfirm(true)
-
                                 }
                                 window.scrollTo({ top: 0, behavior: 'smooth' })
                             }}>
@@ -1197,7 +1212,15 @@ function BusinessSignup() {
                         </div>
                         <Space big={true} />
                         <BottomButtons details={true}>
-                            <ShowMore back={true}>
+                            <ShowMore 
+                            back={true}
+                            onClick={() => {
+                                    setdisplayConfirm(false)
+                                    setDetails(false)
+                                    setAvailability(true)
+                                    setLoaddetails(false)
+                                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                            }}>
                                 Back:Availability
                             </ShowMore>
                             <Next
@@ -1302,8 +1325,16 @@ function BusinessSignup() {
                     <BottomButtons confirm={true}>
                         <ShowMore
                             back={true}
+                            onClick={() => {
+                                if(login === true){
+                                   setAvailability(true)
+                                   setdisplayConfirm(false)
+                                   setLoadconfirm(false)
+                                   window.scrollTo({ top: 0, behavior: 'smooth' })
+                                }
+                            }}
                         >
-                            Back:Details
+                            Back:{login === true ? 'Availability' : 'Details'}
                             </ShowMore>
                         <Next
                             left={true}
