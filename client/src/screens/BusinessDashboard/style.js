@@ -104,7 +104,7 @@ export const Text = styled.text`
   padding: ${props => props.modal ? null : '1vw 2vw'};
   font-weight: 900;
   color: #35363a;
-  height: 1vw;
+  height: 1.2vw;
   border-bottom: ${props => props.click ? '0.2vw solid #439bd7' : null};
   transition: border 0.1s ease-in-out;
   margin-left: ${props => props.modal ? '2vw' : null};

@@ -5,7 +5,8 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/server.js",
-    "client": "node start-client.js"
+    "client": "node start-client.js",
+    "connect": "sequelize db:migrate"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

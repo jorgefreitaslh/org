@@ -203,14 +203,14 @@ function BusinessSignup() {
     }
 
     const ValidateRegion = () => {
-        if (/^[a-zA-Z ]+$/.test(region) === false) {
+        if (region === '') {
             return false
         }
         return true
     }
 
     const ValidateCountry = () => {
-        if (/^[a-zA-Z ]+$/.test(country) === false) {
+        if (country === '') {
             return false
         }
         return true
@@ -557,7 +557,7 @@ function BusinessSignup() {
                         </Title>
                         <Title size={true} subtitle={true}>
                             Schedule your 1 to 1 Mentoring Call
-                    </Title>
+                        </Title>
                     </Div>
                     <Div right={true}>
                         <Option left={true}>
@@ -597,7 +597,7 @@ function BusinessSignup() {
                             <Ball select={loadconfirm}>
                                 <Text select={loadconfirm}>
                                     4
-                            </Text>
+                                </Text>
                             </Ball>
                             <Text>
                                 Confirm
@@ -665,7 +665,7 @@ function BusinessSignup() {
                             <IconArea src={seta} id="setadesign" />
                             <Text>
                                 Desing and branding
-                        </Text>
+                            </Text>
                         </AreaOption>
                         <Area id='design'>
                             <AreaSelect>
@@ -700,7 +700,7 @@ function BusinessSignup() {
                             <IconArea src={seta} id="setaservice" />
                             <Text>
                                 Costumer service
-                        </Text>
+                            </Text>
                         </AreaOption>
                         <Area id='service'>
                             <AreaSelect>
@@ -764,14 +764,14 @@ function BusinessSignup() {
                                             color: '#ccc'
                                         }}>
                                             ★
-                                            </span>}
+                                        </span>}
                                         fullSymbol={<span style={{
                                             fontSize: '1.3vw',
                                             width: '2vw',
                                             color: '#ace4e9'
                                         }}>
                                             ★
-                                            </span>}
+                                        </span>}
                                         style={{
                                             height: '1vw',
                                             marginLeft: '10.6vw',
@@ -1043,15 +1043,15 @@ function BusinessSignup() {
                         </Question>
                     </AvailabilityCenter>
                     <BottomButtons>
-                        <ShowMore 
+                        <ShowMore
                             back={true}
-                            onClick={() =>{
+                            onClick={() => {
                                 setMentors(true)
                                 setAvailability(false)
                                 setLoadavailability(false)
                                 setLoaddetails(false)
                                 window.scrollTo({ top: 0, behavior: 'smooth' })
-                        }}>
+                            }}>
                             Back:Mentors
                         </ShowMore>
                         <Next
@@ -1074,11 +1074,11 @@ function BusinessSignup() {
                             left={true}
                             onClick={() => {
                                 if (login === false) {
-                                    if(sign === true){
+                                    if (sign === true) {
                                         setAvailability(false)
                                         setDetails(true)
                                         setLoaddetails(true)
-                                    }else {
+                                    } else {
                                         setShow(true)
                                     }
                                 } else {
@@ -1212,15 +1212,15 @@ function BusinessSignup() {
                         </div>
                         <Space big={true} />
                         <BottomButtons details={true}>
-                            <ShowMore 
-                            back={true}
-                            onClick={() => {
+                            <ShowMore
+                                back={true}
+                                onClick={() => {
                                     setdisplayConfirm(false)
                                     setDetails(false)
                                     setAvailability(true)
                                     setLoaddetails(false)
                                     window.scrollTo({ top: 0, behavior: 'smooth' })
-                            }}>
+                                }}>
                                 Back:Availability
                             </ShowMore>
                             <Next
@@ -1326,16 +1326,16 @@ function BusinessSignup() {
                         <ShowMore
                             back={true}
                             onClick={() => {
-                                if(login === true){
-                                   setAvailability(true)
-                                   setdisplayConfirm(false)
-                                   setLoadconfirm(false)
-                                   window.scrollTo({ top: 0, behavior: 'smooth' })
+                                if (login === true) {
+                                    setAvailability(true)
+                                    setdisplayConfirm(false)
+                                    setLoadconfirm(false)
+                                    window.scrollTo({ top: 0, behavior: 'smooth' })
                                 }
                             }}
                         >
                             Back:{login === true ? 'Availability' : 'Details'}
-                            </ShowMore>
+                        </ShowMore>
                         <Next
                             left={true}
                             onClick={CreateRequest}>
@@ -1389,19 +1389,19 @@ function BusinessSignup() {
                         <Info>
                             <Info>
                                 I agree to the Organizacao
-                        </Info>
+                            </Info>
                             <Info click={true} left={true}>
                                 User Agreement,
-                        </Info>
+                            </Info>
                             <Info click={true} left={true}>
                                 Privacy Policy
-                        </Info>
+                            </Info>
                             <Info left={true}>
                                 and
-                        </Info>
+                            </Info>
                             <Info click={true} left={true}>
                                 Cookie Policy
-                        </Info>
+                            </Info>
                         </Info>
                     </Bottom>
                     <Space size={true} />

@@ -466,7 +466,7 @@ function ProfileCreate() {
                                 <IconArea src={seta} />
                                 <Title profile={true} option={true}>
                                     Digital marketing implementation
-                            </Title>
+                                </Title>
                             </AreaOption>
                             <AreaSelect id='digital'>
                                 <Radio
@@ -501,7 +501,7 @@ function ProfileCreate() {
                                 <IconArea src={seta} />
                                 <Title profile={true} option={true}>
                                     Desing and branding
-                            </Title>
+                                </Title>
                             </AreaOption>
                             <AreaSelect id='design'>
                                 <Radio
@@ -536,7 +536,7 @@ function ProfileCreate() {
                                 <IconArea src={seta} />
                                 <Title profile={true} option={true}>
                                     Costumer service
-                            </Title>
+                                </Title>
                             </AreaOption>
                         </Area>
                         <Area>
@@ -544,7 +544,7 @@ function ProfileCreate() {
                                 <IconArea src={seta} />
                                 <Title profile={true} option={true}>
                                     E-commerce
-                            </Title>
+                                </Title>
                             </AreaOption>
                         </Area>
                         <Area>
@@ -552,7 +552,7 @@ function ProfileCreate() {
                                 <IconArea src={seta} />
                                 <Title profile={true} option={true}>
                                     E-commerce
-                            </Title>
+                                </Title>
                             </AreaOption>
                         </Area>
                         <Area>
@@ -560,7 +560,7 @@ function ProfileCreate() {
                                 <IconArea src={seta} />
                                 <Title profile={true} option={true}>
                                     E-commerce
-                            </Title>
+                                </Title>
                             </AreaOption>
                         </Area>
                     </Areas>

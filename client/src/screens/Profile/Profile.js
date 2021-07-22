@@ -60,7 +60,6 @@ import close from '../../assets/img/close.svg';
 
 function Profile() {
 
-    window.scrollTo({ top: 0, behavior: 'smooth' })
     const [loading, setLoading] = useState(true);
     const history = useHistory();
     const location = useLocation();
@@ -124,7 +123,7 @@ function Profile() {
         setBio(user.bio);
         setMatching(user.matching);
         setOrg(user.businessType)
-        setCustom(user.hour);
+        setCustom(user.hour.toString());
         setPassword(user.password);
         setLanguage(user.language === null ? '' : user.language);
         setCountries(user.preference === null ? '' : user.preference);
@@ -392,7 +391,7 @@ function Profile() {
                             <ButtonUp>
                                 <InputUp onChange={handleChangeImage} type="file" accept=".jpg,.jpeg,.png" />
                                 Change profile photo
-                        </ButtonUp>
+                            </ButtonUp>
                         </Photo>
                     </Left>
                     <Right>
@@ -417,12 +416,12 @@ function Profile() {
                         <Div>
                             <Perfil>
                                 Profile
-                        </Perfil>
+                            </Perfil>
                             <Line />
                             <Space />
                             <Text bold={true}>
                                 Your name
-                        </Text>
+                            </Text>
                             <Input
                                 value={name}
                                 type='text'
@@ -430,7 +429,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Your lastname
-                        </Text>
+                            </Text>
                             <Input
                                 value={lastname}
                                 type='text'
@@ -438,7 +437,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Company
-                        </Text>
+                            </Text>
                             <Input
                                 value={company}
                                 type='text'
@@ -446,7 +445,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Role
-                        </Text>
+                            </Text>
                             <Input
                                 value={role}
                                 type='text'
@@ -454,7 +453,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Gender
-                        </Text>
+                            </Text>
                             <Select
                                 value={gender}
                                 onChange={handlechangeGender}
@@ -467,7 +466,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Country
-                        </Text>
+                            </Text>
                             <CountryDropdown
                                 value={country}
                                 onChange={selectCountry}
@@ -476,7 +475,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 State
-                        </Text>
+                            </Text>
                             <RegionDropdown
                                 country={country}
                                 value={region}
@@ -496,7 +495,7 @@ function Profile() {
                             />
                             <Perfil top={true}>
                                 Login & Security
-                        </Perfil>
+                            </Perfil>
                             <Line />
                             <Space />
                             <Text bold={true}>
@@ -521,7 +520,7 @@ function Profile() {
                         <Div left={true}>
                             <Perfil>
                                 Mentoring Preferences
-                        </Perfil>
+                            </Perfil>
                             <Line />
                             <Space />
                             <Text bold={true}>
@@ -545,7 +544,7 @@ function Profile() {
                                         </Option>
                                         <Option left={true} onClick={() => deleteLanguage(item)}>
                                             x
-                                    </Option>
+                                        </Option>
                                     </Skill>
                                 ))
                                     : (
@@ -554,7 +553,7 @@ function Profile() {
                             </Bottom>
                             <Text bold={true}>
                                 Skills you selected
-                        </Text>
+                            </Text>
                             <Select
                                 value={skills}
                                 onChange={handleChangeSkills}
@@ -579,7 +578,7 @@ function Profile() {
                                         </Option>
                                         <Option left={true} onClick={() => deleteSkill(item)}>
                                             x
-                                    </Option>
+                                        </Option>
                                     </Skill>
                                 ))
                                     : (
@@ -588,7 +587,7 @@ function Profile() {
                             </Bottom>
                             <Text bold={true}>
                                 Preference for location of mentees
-                        </Text>
+                            </Text>
                             <Buttons>
                                 <Radio
                                     type="radio"
@@ -612,11 +611,10 @@ function Profile() {
                                         setHeight3(true)
                                         setCountries([])
                                     }}
-                                    checked={
-                                        height3 === true ?
-                                            true
-                                            :
-                                            false
+                                    checked={countries.filter(e => "All Countries".includes(e)).length === 0 ?
+                                        true
+                                        :
+                                        false
                                     }
                                     type="radio"
                                     name="country"
@@ -639,7 +637,7 @@ function Profile() {
                                         </Option>
                                         <Option left={true} onClick={() => deleteCountrie(item)}>
                                             x
-                                    </Option>
+                                        </Option>
                                     </Skill>
                                 ))
                                     : (
@@ -649,30 +647,30 @@ function Profile() {
                             <Space size={true} />
                             <Text bold={true}>
                                 How often can you mentor organisations?
-                        </Text>
+                            </Text>
                             <Options>
                                 <LineOption left={true}>
-                                    <Radio type="radio" name="hours" value="1" onClick={() => { setCustom(1) }} />
+                                    <Radio type="radio" name="hours" checked={custom === "1"} value="1" onClick={() => { setCustom("1") }} />
                                     <Text font={true} >1 hour per month</Text>
                                 </LineOption>
                                 <LineOption>
-                                    <Radio left={true} type="radio" name="hours" value="2" onClick={() => { setCustom(2) }} />
+                                    <Radio left={true} type="radio" checked={custom === "2"} name="hours" value="2" onClick={() => { setCustom("2") }} />
                                     <Text font={true}>2 hours per month</Text>
                                 </LineOption>
                                 <LineOption>
-                                    <Radio left={true} type="radio" name="hours" value="3" onClick={() => { setCustom(3) }} />
+                                    <Radio left={true} type="radio" checked={custom === "3"} name="hours" value="3" onClick={() => { setCustom("3") }} />
                                     <Text font={true}>5 hours per month</Text>
                                 </LineOption>
                                 <LineOption left={true}>
-                                    <Radio type="radio" name="hours" value="4" onClick={() => { setCustom(4) }} />
+                                    <Radio type="radio" name="hours" checked={custom === "4"} value="4" onClick={() => { setCustom("4") }} />
                                     <Text font={true}>8 hours per month</Text>
                                 </LineOption>
                                 <LineOption>
-                                    <Radio type="radio" name="hours" value="10" onClick={() => { setCustom(10) }} />
+                                    <Radio type="radio" name="hours" checked={custom === "5"} value="10" onClick={() => { setCustom("5") }} />
                                     <Text font={true}>10 hours per month</Text>
                                 </LineOption>
                                 <LineOption>
-                                    <Radio type="radio" name="hours" value={custom} />
+                                    <Radio type="radio" name="hours" checked={["1", "2", "3", "4", "5"].indexOf(custom) === -1} value={custom} />
                                     <Text font={true}>Custom </Text>
                                     <Number type="number" onChange={NumberSelect} />
                                     <Text font={true} left={true}>- hours per month</Text>
@@ -681,12 +679,12 @@ function Profile() {
                             <Space size={true} />
                             <Perfil business={true}>
                                 Data, Privacy & Communication
-                        </Perfil>
+                            </Perfil>
                             <Line />
                             <Space />
                             <Text bold={true}>
                                 Newsletter Preferences
-                        </Text>
+                            </Text>
                             <Options>
                                 <LineOption left={true}>
                                     <Radio type="radio" name="newsletter" value="Yes" checked={newsletter === 'Yes' ? true : false} onClick={() => { setNewsletter('Yes') }} />
@@ -700,7 +698,7 @@ function Profile() {
                             <Space size={true} />
                             <Text bold={true}>
                                 Mentoring Call Requests
-                        </Text>
+                            </Text>
                             <Options>
                                 <LineOption left={true}>
                                     <Radio type="radio" name="requests" value="Yes" checked={requests === 'Yes' ? true : false} onClick={() => { setRequests('Yes') }} />
@@ -719,7 +717,7 @@ function Profile() {
                                 </Name>
                                 <Save onClick={Infos}>
                                     Save
-                                <Ok src={load} />
+                                    <Ok src={load} />
                                 </Save>
                             </SaveButton>
                         </Div>
@@ -729,12 +727,12 @@ function Profile() {
                         <Div>
                             <Perfil>
                                 Profile
-                        </Perfil>
+                            </Perfil>
                             <Line />
                             <Space />
                             <Text bold={true}>
                                 Your name
-                        </Text>
+                            </Text>
                             <Input
                                 value={name}
                                 type='text'
@@ -742,7 +740,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Your lastname
-                        </Text>
+                            </Text>
                             <Input
                                 value={lastname}
                                 type='text'
@@ -750,7 +748,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Sumary
-                        </Text>
+                            </Text>
                             <Input
                                 value={bio}
                                 type='text'
@@ -768,7 +766,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Gender
-                        </Text>
+                            </Text>
                             <Select
                                 value={gender}
                                 onChange={handlechangeGender}
@@ -781,7 +779,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Organisation Type
-                        </Text>
+                            </Text>
                             <Select
                                 value={org}
                                 onChange={handlechangeOrg}
@@ -797,7 +795,7 @@ function Profile() {
                             <Space />
                             <Text bold={true}>
                                 Country
-                        </Text>
+                            </Text>
                             <CountryDropdown
                                 value={country}
                                 onChange={selectCountry}
@@ -841,12 +839,12 @@ function Profile() {
                         <Div left={true}>
                             <Perfil>
                                 Mentoring Preferences
-                        </Perfil>
+                            </Perfil>
                             <Line />
                             <Space />
                             <Text bold={true}>
                                 In which languages ​​can you mentor?
-                        </Text>
+                            </Text>
                             <Select
                                 value={language}
                                 onChange={handleChangeLanguage}
@@ -865,7 +863,7 @@ function Profile() {
                                         </Option>
                                         <Option left={true} onClick={() => deleteLanguage(item)}>
                                             x
-                                    </Option>
+                                        </Option>
                                     </Skill>
                                 ))
                                     : (
@@ -874,7 +872,7 @@ function Profile() {
                             </Bottom>
                             <Text bold={true}>
                                 Your Selected Learning Subjects
-                        </Text>
+                            </Text>
                             <Select
                                 value={skills}
                                 onChange={handleChangeSkills}
@@ -899,7 +897,7 @@ function Profile() {
                                         </Option>
                                         <Option left={true} onClick={() => deleteSkill(item)}>
                                             x
-                                    </Option>
+                                        </Option>
                                     </Skill>
                                 ))
                                     : (
@@ -909,7 +907,7 @@ function Profile() {
                             <Space size={true} />
                             <Text bold={true}>
                                 Matching with mentors
-                        </Text>
+                            </Text>
                             <Options>
                                 <LineOption left={true}>
                                     <Radio type="radio" name="Matching" value="Yes" checked={matching === 'Yes' ? true : false} onClick={() => { setMatching('Yes') }} />
@@ -985,7 +983,7 @@ function Profile() {
                                 </Name>
                                 <Save onClick={Infos2}>
                                     Save
-                                <Ok src={load} />
+                                    <Ok src={load} />
                                 </Save>
                             </SaveButton>
                         </Div>
