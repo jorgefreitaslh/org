@@ -92,6 +92,7 @@ import close from '../../assets/img/close.svg';
 import found from '../../assets/img/found.png';
 import ok from '../../assets/img/ok.svg';
 import loader from '../../assets/img/load.gif';
+import loaderconfirm from '../../assets/img/loader.gif';
 
 function BusinessSignup() {
 
@@ -148,6 +149,7 @@ function BusinessSignup() {
     const [loaddetails, setLoaddetails] = useState(false);
     const [loadconfirm, setLoadconfirm] = useState(false);
     const [Loader, setLoader] = useState('Sign up');
+    const [confirmLoader, setConfirmLoader] = useState('Confirm');
     const [number, setNumber] = useState(6);
 
     const [on, setOn] = useState(false);
@@ -469,6 +471,7 @@ function BusinessSignup() {
     }
 
     const CreateRequest = async () => {
+        setConfirmLoader(<img src={loaderconfirm} style={{ width: '2vw' }} alt="loaderconfirm" />)
         invited.map(item => {
             const body = {
                 email: item,
@@ -510,6 +513,7 @@ function BusinessSignup() {
                             window.scrollTo({ top: 0, behavior: 'smooth' })
                         }
                     }).catch(err => {
+                        setConfirmLoader('Confirm')
                         console.log(err)
                     })
         })
@@ -1339,7 +1343,7 @@ function BusinessSignup() {
                         <Next
                             left={true}
                             onClick={CreateRequest}>
-                            Confirm
+                            {confirmLoader}
                         </Next>
                     </BottomButtons>
                 </Confirm>

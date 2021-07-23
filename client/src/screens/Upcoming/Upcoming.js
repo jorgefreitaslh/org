@@ -69,7 +69,7 @@ function Upcoming() {
 
         const filter = Requests.filter(({ learnerId }) => learner.includes(learnerId));
         filter.map(id => {
-            if (JSON.parse(id.volunteers) === volunteer) {
+            if (id.volunteers === volunteer) {
                 if (id.dates.toString() === hour.toString()) {
                     setID(id.id)
                 }
@@ -137,7 +137,7 @@ function Upcoming() {
                             }}
                         >
                             Confirm Call
-                            </Button>
+                        </Button>
                     </Info>
                     :
                     <div>

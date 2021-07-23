@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     learnerId: DataTypes.STRING,
     priority: DataTypes.STRING,
     experience: DataTypes.STRING,
-    volunteers: DataTypes.JSON,
+    volunteers: DataTypes.STRING,
     dates: DataTypes.JSON,
   }, {});
   return Request;

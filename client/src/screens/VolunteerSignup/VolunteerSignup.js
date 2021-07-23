@@ -20,6 +20,7 @@ import {
 
 //Images
 import logo from '../../assets/img/logoheader.png'
+import loader from '../../assets/img/load.gif';
 
 function SignUp() {
 
@@ -33,6 +34,7 @@ function SignUp() {
     const [off, setOff] = useState(true);
     const [newArray, setArray] = useState([]);
 
+    const [Loader, setLoader] = useState('Sign up');
     const [erro, setErro] = useState('');
 
     useEffect(async () => {
@@ -108,6 +110,7 @@ function SignUp() {
     }
 
     const Signup = async () => {
+        setLoader(<img src={loader} style={{ width: '1.5vw' }} alt="loaderconfirm" />)
         const body = {
             email: email,
             password: password
@@ -120,6 +123,8 @@ function SignUp() {
                     email: email
                 }
             })
+        } else {
+            setLoader('Sign up')
         }
     }
 

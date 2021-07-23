@@ -78,7 +78,20 @@ function Header() {
                         <span style={{ color: '#ecf0f1' }}>....</span>  |
                     </div>
                     :
-                    null
+                    <div style={{ marginTop: '0.5vw', marginLeft: '74vw', position: 'absolute' }}>
+                        <Txt business={true} onClick={() => {
+                            history.push({
+                                pathname: '/volunteer-dashboard',
+                                state: {
+                                    email: location.state.email,
+                                    type: 'volunteer'
+                                }
+                            })
+                        }}>
+                            Dashboard
+                        </Txt>
+                        <span style={{ color: '#ecf0f1' }}>....</span>  |
+                    </div>
             }
             <TxtHeader onClick={() => {
                 show === true ?
@@ -151,7 +164,7 @@ function Header() {
                                 }
                             })} >
                                 Logout
-                                </Menu>
+                            </Menu>
                         </text>
                 }
             </Modal>

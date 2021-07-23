@@ -18,7 +18,7 @@ module.exports = {
                 type: Sequelize.STRING
             },
             volunteers: {
-                type: Sequelize.JSON
+                type: Sequelize.STRING
             },
             dates: {
                 type: Sequelize.JSON

@@ -251,6 +251,7 @@ function Dashboard() {
                                             <Button
                                                 onClick={() => {
                                                     setRequest(item.id)
+                                                    setVolunteerId(item.volunteerId)
                                                     if (request === item.id) {
                                                         openModal2()
                                                     }
@@ -299,6 +300,7 @@ function Dashboard() {
                                             <Button
                                                 onClick={() => {
                                                     setRequest(item.id)
+                                                    console.log(item.volunteers)
                                                     setVolunteerId(item.volunteers)
                                                     if (request === item.id) {
                                                         openModal()
@@ -344,7 +346,7 @@ function Dashboard() {
                                                     off={true}
                                                 >
                                                     Evaluated!
-                                            </Button>
+                                                </Button>
                                                 :
                                                 <Button
                                                     completed={true}
@@ -357,7 +359,7 @@ function Dashboard() {
                                                     }}
                                                 >
                                                     Evaluate the Volunteer
-                                            </Button>
+                                                </Button>
                                             }
                                         </Info>
                                     ))
