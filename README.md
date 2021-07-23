@@ -43,14 +43,15 @@ We're using Sequelize as the ORM, so please see [their website](http://docs.sequ
 
 ### Migrations
 
+To create the database tables.
+
 ```
-npm run db:migrate   // runs the migration
+cd server
+npm run db:migrate
 ```
 
 ## Starting the Application
-Before starting the application, you'll need to setup the database by creating the database and running the initial migrations as previously described.  You can optionally seed the development database as well.
-
-Once you've set up the initial database...
+To start the application.
 
 ```
 cd org
