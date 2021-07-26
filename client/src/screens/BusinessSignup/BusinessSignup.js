@@ -118,6 +118,8 @@ function BusinessSignup() {
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [bio, setBio] = useState('');
+    const [cnpj, setCNPJ] = useState('');
+    const [role, setRole] = useState('');
     const [business, setBusiness] = useState('');
     const [country, setCountry] = useState('');
     const [region, setRegion] = useState('');
@@ -226,6 +228,12 @@ function BusinessSignup() {
     }
 
     useEffect(async () => {
+
+        document.getElementById('cnpj').addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+            setCNPJ(!x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : ''));
+        });
+
         const get = await axios.get(`/api/learners/`);
         const learners = get.data.learners;
         if (
@@ -380,6 +388,16 @@ function BusinessSignup() {
         setReload(true)
     }
 
+    const handleChangeCNPJ = e => {
+        setCNPJ(e.target.value)
+        setReload(true)
+    }
+
+    const handleChangeRole = e => {
+        setRole(e.target.value)
+        setReload(true)
+    }
+
     const handleChangeExperience = e => {
         setExperience(e.target.value);
     }
@@ -455,6 +473,8 @@ function BusinessSignup() {
                 country: country,
                 state: region,
                 bio: bio,
+                cnpj: cnpj.replace(/\D/g, ""),
+                businessRole: role,
                 businessName: business,
                 businessType: document.querySelector('input[name=type]:checked').value,
                 image: image,
@@ -1157,13 +1177,32 @@ function BusinessSignup() {
                             onChange={handleChangeBio}
                         />
                         <Label input={true}>
-                            Name of business<span style={{ color: '#439bd7' }}>*</span>
+                            Name of business <span style={{ color: '#439bd7' }}>*</span>
                         </Label>
                         <Form
                             type='text'
                             big={true}
                             value={business}
                             onChange={handleChangeBusiness}
+                        />
+                        <Label input={true}>
+                            CNPJ <span style={{ color: '#439bd7' }}>*</span>
+                        </Label>
+                        <Form
+                            type='text'
+                            big={true}
+                            id='cnpj'
+                            value={cnpj}
+                            onChange={handleChangeCNPJ}
+                        />
+                        <Label input={true}>
+                            Your role name <span style={{ color: '#439bd7' }}>*</span>
+                        </Label>
+                        <Form
+                            type='text'
+                            big={true}
+                            value={role}
+                            onChange={handleChangeRole}
                         />
                     </DetailsDiv>
                     <DetailsDiv left={true}>
@@ -1182,9 +1221,9 @@ function BusinessSignup() {
                             <RadioButtons left={true} type="radio" name="gender" value="Others" onClick={() => { setReload(true) }} />
                             <Text size={true}>Others/Does not wish to identify</Text>
                         </div>
-                        <Space big={true} />
+                        <Space space={true} />
                         <Label input={true}>
-                            What type of organisation do you work for?
+                            What type of organisation do you work for? <span style={{ color: '#439bd7' }}>*</span>
                         </Label>
                         <div style={{ height: '2.5vw', display: 'flex', alignItems: 'center' }}>
                             <RadioButtons left={true} type="radio" name="type" value="Business" onClick={() => { setReload(true) }} />
@@ -1214,7 +1253,7 @@ function BusinessSignup() {
                             <RadioButtons left={true} type="radio" name="type" value="School" onClick={() => { setReload(true) }} />
                             <Text size={true}>Unemployed/furloughed</Text>
                         </div>
-                        <Space big={true} />
+                        <Space bottom={true} />
                         <BottomButtons details={true}>
                             <ShowMore
                                 back={true}

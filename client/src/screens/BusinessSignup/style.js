@@ -486,7 +486,7 @@ export const BottomButtons = styled.div`
   justify-content: space-between;
   position: ${props => props.details ? 'absolute' : null};
   margin-left: ${props => props.details ? '-61vw' : '-2.5vw'};
-  margin-top: ${props => props.details ? '50vw' : null};
+  margin-top: ${props => props.details ? '64vw' : null};
   margin-left: ${props => props.confirm ? '-7.5vw' : null} !important;
   margin-top: ${props => props.confirm ? '-2vw' : null} !important;
   margin-bottom: ${props => props.confirm ? '2vw' : null} !important;
@@ -549,7 +549,9 @@ export const SignUp = styled.text`
 
 export const Space = styled.div`
   height: ${props => props.size ? '1vw' : '2.5vw'};
-  height: ${props => props.big ? '13vw' : null} !important;
+  height: ${props => props.big ? '19vw' : null} !important;
+    height: ${props => props.bottom ? '12vw' : null} !important;
+  height: ${props => props.space ? '27.5vw' : null} !important;
   height: ${props => props.erro ? '1.5vw' : null} !important;
   font-family:  ${props => props.type ? 'Filson' : 'FilsonBold'};
   font-size: ${props => props.type ? '1vw' : '1.2vw'};

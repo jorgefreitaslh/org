@@ -23,7 +23,10 @@ import Footer from '../../components/Footer/footer';
 
 //Images
 import user from '../../assets/img/pp.jpeg';
-// import user from '../../assets/img/avatar.png';
+import paulo from '../../assets/img/paulo.jpeg';
+import jorge from '../../assets/img/jorge.jpeg';
+import marco from '../../assets/img/marco.jpeg';
+import vini from '../../assets/img/vini.jpeg';
 
 function AboutUs() {
 
@@ -78,17 +81,17 @@ function AboutUs() {
                     </Info>
                     <Team>
                         <TeamInfo>
-                            <ImageTeam src={user} />
+                            <ImageTeam src={paulo} />
                             <Title team={true}>
                                 <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
+                                    Paulo Sergio
                                 </span>
                             </Title>
                             <Info size={true} margin={true}>
-                                Founder
+                                Seller
                             </Info>
                             <Info>
-                                Sherry Coutu CBE has a deep understanding of the Digital Sector having been a serial entrepreneur, investor and non-exec...
+                                Seller Experience Strategy team serves as an internal consultant to measure...
                             </Info>
                             <Info
                                 top={true}
@@ -103,67 +106,17 @@ function AboutUs() {
                             </Info>
                         </TeamInfo>
                         <TeamInfo>
-                            <ImageTeam src={user} />
+                            <ImageTeam src={jorge} />
                             <Title team={true}>
                                 <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
+                                    Jorge Freitas
                                 </span>
                             </Title>
                             <Info size={true} margin={true}>
-                                Founder
+                                Developer
                             </Info>
                             <Info>
-                                Sherry Coutu CBE has a deep understanding of the Digital Sector having been a serial entrepreneur, investor and non-exec...
-                            </Info>
-                            <Info
-                                top={true}
-                                click={true}
-                                onClick={() => {
-                                    history.push('/team')
-                                    window.scrollTo({ top: 0, behavior: 'smooth' })
-                                }}>
-                                <span style={{ borderBottom: '0.1vw solid #afe097' }}>
-                                    Read More
-                                </span>
-                            </Info>
-                        </TeamInfo>
-                        <TeamInfo>
-                            <ImageTeam src={user} />
-                            <Title team={true}>
-                                <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
-                                </span>
-                            </Title>
-                            <Info size={true} margin={true}>
-                                Founder
-                            </Info>
-                            <Info>
-                                Sherry Coutu CBE has a deep understanding of the Digital Sector having been a serial entrepreneur, investor and non-exec...
-                            </Info>
-                            <Info
-                                top={true}
-                                click={true}
-                                onClick={() => {
-                                    history.push('/team')
-                                    window.scrollTo({ top: 0, behavior: 'smooth' })
-                                }}>
-                                <span style={{ borderBottom: '0.1vw solid #afe097' }}>
-                                    Read More
-                                </span>
-                            </Info>
-                        </TeamInfo>
-                        <TeamInfo>
-                            <ImageTeam src={user} />
-                            <Title team={true}>
-                                <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
-                                </span>
-                            </Title>
-                            <Info size={true} margin={true}>
-                                Founder
-                            </Info>
-                            <Info>
-                                Sherry Coutu CBE has a deep understanding of the Digital Sector having been a serial entrepreneur, investor and non-exec...
+                                Develop, test and implement new software programs. Clearly and regularly communicate...
                             </Info>
                             <Info
                                 top={true}
@@ -182,13 +135,13 @@ function AboutUs() {
                 <Information>
                     <Title team={true}>
                         Our Board of Directors
-                     </Title>
+                    </Title>
                     <Team>
                         <TeamInfo>
-                            <ImageTeam src={user} />
+                            <ImageTeam src={marco} />
                             <Title team={true}>
                                 <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
+                                    Marco Carvalho
                                 </span>
                             </Title>
                             <Info topper={true} size={true}>
@@ -196,32 +149,10 @@ function AboutUs() {
                             </Info>
                         </TeamInfo>
                         <TeamInfo>
-                            <ImageTeam src={user} />
+                            <ImageTeam src={vini} />
                             <Title team={true}>
                                 <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
-                                </span>
-                            </Title>
-                            <Info topper={true} size={true}>
-                                Chairman of the board, Digital Boost; Internationally recognised Chief Commercial Officer
-                            </Info>
-                        </TeamInfo>
-                        <TeamInfo>
-                            <ImageTeam src={user} />
-                            <Title team={true}>
-                                <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
-                                </span>
-                            </Title>
-                            <Info topper={true} size={true}>
-                                Chairman of the board, Digital Boost; Internationally recognised Chief Commercial Officer
-                            </Info>
-                        </TeamInfo>
-                        <TeamInfo>
-                            <ImageTeam src={user} />
-                            <Title team={true}>
-                                <span style={{ backgroundColor: '#afe097' }}>
-                                    Jotinha Freitas
+                                    Vinicius Vitti
                                 </span>
                             </Title>
                             <Info topper={true} size={true}>
@@ -233,14 +164,14 @@ function AboutUs() {
                 <Information>
                     <Title team={true}>
                         Our Direction
-                     </Title>
+                    </Title>
                     <Info>
                         We are grateful to have the guidance and support of leaders from across a range of sectors and organisations.
                     </Info>
                     <Team>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Alex Bishop
+                                John Jones
                             </Title>
                             <Info size={true} topper={true}>
                                 National Head of Dispute Resolution & Litigation, Shoosmiths
@@ -248,7 +179,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Gary Coyle
+                                Anderson Silva
                             </Title>
                             <Info size={true} topper={true}>
                                 Local Digital Skills Partnerships, DCMS
@@ -256,7 +187,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Claire Enders
+                                Mac Miller
                             </Title>
                             <Info size={true} topper={true}>
                                 Founder, Enders Analysis
@@ -264,7 +195,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Joy Foster
+                                Tio Patinhas
                             </Title>
                             <Info size={true} topper={true}>
                                 Founder, Tech Pixies
@@ -272,7 +203,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Yvonne Greeves
+                                Raffa Moreira
                             </Title>
                             <Info size={true} topper={true}>
                                 Director of Women in Business, NatWest Group
@@ -280,7 +211,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Sahar Hashemi
+                                Bufalo Bill
                             </Title>
                             <Info size={true} topper={true}>
                                 Entrepreneur and best-selling author
@@ -288,7 +219,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Jackie Hunter
+                                Jack Chan
                             </Title>
                             <Info size={true} topper={true}>
                                 Board Director, BenevolentAI
@@ -296,7 +227,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Kerensa Jennings
+                                Carol Denvers
                             </Title>
                             <Info size={true} topper={true}>
                                 Group Director of Digital Impact, BT
@@ -304,7 +235,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Ashok Vaswani
+                                Steve Rogers
                             </Title>
                             <Info size={true} topper={true}>
                                 CEO Europe Cluster and Member of Group Executive Committee, Vodafone
@@ -312,7 +243,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Giri Kesevan
+                                Logan Paul
                             </Title>
                             <Info size={true} topper={true}>
                                 Chairman and Non-Exec Director and Chair of the Digital Skills Partnership, Chairman IQE PLC. Retired CEO and Chair of Cisco UK and Ireland
@@ -320,7 +251,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Priyanka Sethi
+                                Michael Jackson
                             </Title>
                             <Info size={true} topper={true}>
                                 Head of Sales, Communication, Media, Education, and Information Services, Tata Consultancy Services
@@ -328,7 +259,7 @@ function AboutUs() {
                         </TeamInfo>
                         <TeamInfo size={true}>
                             <Title size={true} team={true}>
-                                Siwan Smith
+                                Will Smith
                             </Title>
                             <Info size={true} topper={true}>
                                 Diversity & Inclusion Manager, KTN

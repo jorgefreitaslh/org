@@ -38,7 +38,13 @@ module.exports = {
             businessName: {
                 type: Sequelize.STRING
             },
+            businessRole: {
+                type: Sequelize.STRING
+            },
             businessType: {
+                type: Sequelize.STRING
+            },
+            cnpj: {
                 type: Sequelize.STRING
             },
             image: {

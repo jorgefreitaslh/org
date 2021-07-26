@@ -70,6 +70,7 @@ function Profile() {
     const [lastname, setLastname] = useState('');
     const [company, setCompany] = useState('');
     const [role, setRole] = useState('');
+    const [cnpj, setCNPJ] = useState('');
     const [since, setSince] = useState('');
     const [country, setCountry] = useState('');
     const [image, setImage] = useState('');
@@ -114,7 +115,7 @@ function Profile() {
         setName(user.firstName);
         setLastname(user.lastName);
         setCompany(type === 'volunteer' ? user.company : user.businessName);
-        setRole(user.role);
+        setRole(type === 'volunteer' ? user.role : user.businessRole);
         setImage(user.image);
         setSince(user.createdAt);
         setGender(user.gender);
@@ -123,7 +124,7 @@ function Profile() {
         setBio(user.bio);
         setMatching(user.matching);
         setOrg(user.businessType)
-        setCustom(user.hour.toString());
+        setCustom(type !== 'volunteer' ? '0' : user.hour.toString());
         setPassword(user.password);
         setLanguage(user.language === null ? '' : user.language);
         setCountries(user.preference === null ? '' : user.preference);
@@ -133,6 +134,9 @@ function Profile() {
         setRequests(user.requests);
         setHeight(user.language === null ? false : true);
         setHeight2(user.skill === null ? false : true);
+        const x = type !== 'volunteer' ? user.cnpj.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/) : '';
+        setCNPJ(!x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : ''));
+
         setReload(false)
         setLoading(false);
     }, [reload])
@@ -160,6 +164,18 @@ function Profile() {
 
     const handlechangeOrg = e => {
         setOrg(e.target.value);
+    }
+
+    const handlechangeName = e => {
+        setName(e.target.value);
+    }
+
+    const handlechangeLastname = e => {
+        setLastname(e.target.value);
+    }
+
+    const handlechangeRole = e => {
+        setRole(e.target.value);
     }
 
     const handleChangeLanguage = e => {
@@ -358,6 +374,8 @@ function Profile() {
                 gender: gender,
                 country: country,
                 state: region,
+                cnpj: cnpj.replace(/\D/g, ""),
+                businessRole: role,
                 bio: bio,
                 image: image,
                 businessType: org,
@@ -425,6 +443,7 @@ function Profile() {
                             <Input
                                 value={name}
                                 type='text'
+                                onChange={handlechangeName}
                             />
                             <Space />
                             <Text bold={true}>
@@ -433,6 +452,7 @@ function Profile() {
                             <Input
                                 value={lastname}
                                 type='text'
+                                onChange={handlechangeLastname}
                             />
                             <Space />
                             <Text bold={true}>
@@ -449,6 +469,7 @@ function Profile() {
                             <Input
                                 value={role}
                                 type='text'
+                                onChange={handlechangeRole}
                             />
                             <Space />
                             <Text bold={true}>
@@ -736,6 +757,7 @@ function Profile() {
                             <Input
                                 value={name}
                                 type='text'
+                                onChange={handlechangeName}
                             />
                             <Space />
                             <Text bold={true}>
@@ -744,10 +766,11 @@ function Profile() {
                             <Input
                                 value={lastname}
                                 type='text'
+                                onChange={handlechangeLastname}
                             />
                             <Space />
                             <Text bold={true}>
-                                Sumary
+                                Bio
                             </Text>
                             <Input
                                 value={bio}
@@ -765,17 +788,22 @@ function Profile() {
                             />
                             <Space />
                             <Text bold={true}>
-                                Gender
+                                CNPJ
                             </Text>
-                            <Select
-                                value={gender}
-                                onChange={handlechangeGender}
-                            >
-                                <option value={null}>Select gender</option>
-                                <option value="Female" >Female</option>
-                                <option value="Male">Male</option>
-                                <option value="Others">Others/Does not wish to identify</option>
-                            </Select>
+                            <Input
+                                value={cnpj}
+                                id='cnpj'
+                                type='text'
+                            />
+                            <Space />
+                            <Text bold={true}>
+                                Role
+                            </Text>
+                            <Input
+                                value={role}
+                                type='text'
+                                onChange={handlechangeRole}
+                            />
                             <Space />
                             <Text bold={true}>
                                 Organisation Type
@@ -791,6 +819,19 @@ function Profile() {
                                 <option value="Freelancer">Freelancer</option>
                                 <option value="Health">Health services</option>
                                 <option value="Unemployed">Unemployed/furloughed</option>
+                            </Select>
+                            <Space />
+                            <Text bold={true}>
+                                Gender
+                            </Text>
+                            <Select
+                                value={gender}
+                                onChange={handlechangeGender}
+                            >
+                                <option value={null}>Select gender</option>
+                                <option value="Female" >Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Others">Others/Does not wish to identify</option>
                             </Select>
                             <Space />
                             <Text bold={true}>
@@ -812,29 +853,7 @@ function Profile() {
                                 defaultOptionLabel="Select State"
                                 classes="select-perfil"
                             />
-                            <Perfil business={true}>
-                                Login & Security
-                            </Perfil>
-                            <Line />
-                            <Space />
-                            <Text bold={true}>
-                                Email Address
-                            </Text>
-                            <Input
-                                value={user_id}
-                                disabled="disabled"
-                                type='text'
-                            />
-                            <Space />
-                            <Text bold={true}>
-                                Password
-                            </Text>
-                            <Input
-                                placeholder="*******************"
-                                onChange={handlechangePassword}
-                                type='text'
-                            />
-                            <Erro>{erro}</Erro>
+
                         </Div>
                         <Div left={true}>
                             <Perfil>
@@ -975,8 +994,30 @@ function Profile() {
                                     <Text font={true}>Mentor Recommendations</Text>
                                 </LineOption>
                             </Options>
+                            <Perfil business={true}>
+                                Login & Security
+                            </Perfil>
+                            <Line />
+                            <Space />
+                            <Text bold={true}>
+                                Email Address
+                            </Text>
+                            <Input
+                                value={user_id}
+                                disabled="disabled"
+                                type='text'
+                            />
+                            <Space />
+                            <Text bold={true}>
+                                Password
+                            </Text>
+                            <Input
+                                placeholder="*******************"
+                                onChange={handlechangePassword}
+                                type='text'
+                            />
+                            <Erro>{erro}</Erro>
                             <Space size={true} />
-                            <Line color={true} />
                             <SaveButton size={true}>
                                 <Name delete={true} onClick={() => { setModal(true) }}>
                                     do you want to delete your account?

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import axios from 'axios';
 
 //Style
 import {
@@ -32,7 +34,6 @@ import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/footer';
 
 //Images
-import user from '../../assets/img/avatar.png';
 import business from '../../assets/img/business.svg';
 import love from '../../assets/img/love.svg';
 import users from '../../assets/img/users.svg';
@@ -44,6 +45,14 @@ function Volunteers() {
 
     document.title = 'Volunteer Your Skills | Org';
     const history = useHistory();
+
+    const [learners, setVolunteers] = useState([]);
+
+    useEffect(async () => {
+        const learners = await axios.get(`/api/learners/`)
+        setVolunteers(learners.data.learners)
+        console.log(learners)
+    }, [])
 
     return (
         <App>
@@ -314,105 +323,41 @@ function Volunteers() {
                     <Slider
                         speed={1000}
                     >
-                        <div>
-                            <Example>
-                                <ImageUser src={user} />
-                                <Title>
-                                    <span style={{ marginLeft: '10vw', backgroundColor: '#afe097', fontSize: '1.3vw' }}>
-                                        Paulinho Lima, CEO & Co-Founder of Adah King Store<br />
-                                    </span>
-                                </Title>
-                                <Space />
-                                <Text size={true} dontclick={true}>
-                                    <span style={{ marginLeft: '10vw', fontSize: '1.2vw' }}>
-                                        "We manage to learn and have access to people with a lot of experience, who know what they do."<br />
-                                    </span>
-                                </Text>
-                                <Space size={true} />
-                                <TextInfo
-                                    button={true}
-                                    color={true}
-                                    onClick={() => {
-                                        history.push({
-                                            pathname: '/business-signup',
-                                            state: {
-                                                login: false
-                                            }
-                                        })
-                                        window.scrollTo({ top: 0, behavior: 'smooth' })
-                                    }}>
-                                    <span style={{ marginLeft: '10vw', borderBottom: '0.1vw solid #afe097' }}>
-                                        Sign up for free support
-                                    </span>
-                                </TextInfo>
-                            </Example>
-                        </div>
-                        <div>
-                            <Example>
-                                <ImageUser src={user} />
-                                <Title>
-                                    <span style={{ marginLeft: '10vw', backgroundColor: '#afe097', fontSize: '1.3vw' }}>
-                                        Paulinho Lima, CEO & Co-Founder of Adah King Store<br />
-                                    </span>
-                                </Title>
-                                <Space />
-                                <Text size={true} dontclick={true}>
-                                    <span style={{ marginLeft: '10vw', fontSize: '1.2vw' }}>
-                                        "We manage to learn and have access to people with a lot of experience, who know what they do."<br />
-                                    </span>
-                                </Text>
-                                <Space size={true} />
-                                <TextInfo
-                                    button={true}
-                                    color={true}
-                                    onClick={() => {
-                                        history.push({
-                                            pathname: '/business-signup',
-                                            state: {
-                                                login: false
-                                            }
-                                        })
-                                        window.scrollTo({ top: 0, behavior: 'smooth' })
-                                    }}>
-                                    <span style={{ marginLeft: '10vw', borderBottom: '0.1vw solid #afe097' }}>
-                                        Sign up for free support
-                                    </span>
-                                </TextInfo>
-                            </Example>
-                        </div>
-                        <div>
-                            <Example>
-                                <ImageUser src={user} />
-                                <Title>
-                                    <span style={{ marginLeft: '10vw', backgroundColor: '#afe097', fontSize: '1.3vw' }}>
-                                        Paulinho Lima, CEO & Co-Founder of Adah King Store<br />
-                                    </span>
-                                </Title>
-                                <Space />
-                                <Text size={true} dontclick={true}>
-                                    <span style={{ marginLeft: '10vw', fontSize: '1.2vw' }}>
-                                        "We manage to learn and have access to people with a lot of experience, who know what they do."<br />
-                                    </span>
-                                </Text>
-                                <Space size={true} />
-                                <TextInfo
-                                    button={true}
-                                    color={true}
-                                    onClick={() => {
-                                        history.push({
-                                            pathname: '/business-signup',
-                                            state: {
-                                                login: false
-                                            }
-                                        })
-                                        window.scrollTo({ top: 0, behavior: 'smooth' })
-                                    }}>
-                                    <span style={{ marginLeft: '10vw', borderBottom: '0.1vw solid #afe097' }}>
-                                        Sign up for free support
-                                    </span>
-                                </TextInfo>
-                            </Example>
-                        </div>
+                        {learners.length > 0 ? learners.slice(0, 3).map(item => (
+                            <div>
+                                <Example>
+                                    <ImageUser src={item.image} />
+                                    <Title>
+                                        <span style={{ marginLeft: '10vw', backgroundColor: '#afe097', fontSize: '1.3vw' }}>
+                                            {item.firstName} {item.lastName}, {item.businessRole} of {item.businessName}<br />
+                                        </span>
+                                    </Title>
+                                    <Space />
+                                    <Text size={true} dontclick={true}>
+                                        <span style={{ marginLeft: '10vw', fontSize: '1.2vw' }}>
+                                            "We manage to learn and have access to people with a lot of experience, who know what they do."<br />
+                                        </span>
+                                    </Text>
+                                    <Space size={true} />
+                                    <TextInfo
+                                        button={true}
+                                        color={true}
+                                        onClick={() => {
+                                            history.push({
+                                                pathname: '/business-signup',
+                                                state: {
+                                                    login: false
+                                                }
+                                            })
+                                            window.scrollTo({ top: 0, behavior: 'smooth' })
+                                        }}>
+                                        <span style={{ marginLeft: '10vw', borderBottom: '0.1vw solid #afe097' }}>
+                                            Sign up for free support
+                                        </span>
+                                    </TextInfo>
+                                </Example>
+                            </div>
+                        )) : null}
                     </Slider>
                 </Top>
                 <Bottom>

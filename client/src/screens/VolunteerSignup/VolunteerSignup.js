@@ -183,7 +183,7 @@ function SignUp() {
                     </Text>
                 </Bottom>
                 <Space size={true} />
-                <Button disabled={off} on={on} onClick={Signup}>Sign up</Button>
+                <Button disabled={off} on={on} onClick={Signup}>{Loader}</Button>
             </Body>
         </App>
     );

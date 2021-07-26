@@ -97,7 +97,6 @@ export const Team = styled.div`
   display: flex;
   width: 90vw;
   margin-top: 1.5vw;
-  justify-content: space-between;
   flex-wrap: wrap;
 `;
 
@@ -109,6 +108,7 @@ export const TeamInfo = styled.div`
   background-color: ${props => props.size ? '#DBEAF5' : null};
   padding: ${props => props.size ? '1vw' : null};
   margin-bottom: ${props => props.size ? '1.5vw' : null};
+  margin-right: 0.5vw;
 `;
 
 export const ImageTeam = styled.img`

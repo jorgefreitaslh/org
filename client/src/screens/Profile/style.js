@@ -311,7 +311,7 @@ export const Save = styled.button`
 
 export const SaveButton = styled.div`
   position: absolute;
-  margin-top: ${props => props.size ? '71.5vw' : '72.4vw'};
+  margin-top: ${props => props.size ? '66vw' : '72.4vw'};
 `;
 
 export const Ok = styled.img`
